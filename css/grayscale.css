@@ -197,16 +197,9 @@ a:focus, a:hover {
 #map {
   display: table;
   width: 100%;
-  height: auto;
+  height: 500px;
   padding: 200px 0;
   text-align: center;
-  color: white;
-  background: url("../img/intro-bg.jpg") no-repeat bottom center scroll;
-  background-color: black;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
 @media (min-width: 992px) {
