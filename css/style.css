@@ -200,6 +200,9 @@ a:focus, a:hover {
 .form-control {
     background-color: #6b747c00;
 }
+.form-control  {
+    background-color: #6b747c00;
+}
 @media (min-width: 992px) {
     .content-section {
         padding-top: 200px;
@@ -219,7 +222,7 @@ a:focus, a:hover {
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     text-transform: uppercase;
-    border-radius: 0
+    border-radius:10%;
 }
 
 .btn-default {
@@ -254,6 +257,12 @@ ul.banner-social-buttons {
 
     ul.banner-social-buttons li:last-child {
         margin-bottom: 0
+    }
+
+    #map {
+        height: 80%;
+        width: 100%;
+        margin: 0;
     }
 }
 
