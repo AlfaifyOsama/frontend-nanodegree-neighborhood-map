@@ -4,9 +4,9 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Udacity Project">
+    <meta name="author" content="Osama Alfaify">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     <title>Os's Map</title>
 
@@ -14,13 +14,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
-          type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
 </head>
 
@@ -47,13 +45,11 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Locations" aria-label="Search">
-                        <button class="btn btn-default btn-lg" type="submit">Search</button>
-                    </form>
-                </li>
             </ul>
+                <form class="form-inline" data-bind="submit: submit">
+                    <input class="form-control btn-lg " type="search" placeholder="Locations" data-bind="value: filterString">
+                    <button class="searchbtn btn-default btn-lg " type="submit" data-bind="click: submit"><span><img src="img/search-512.png"></span></button>
+                </form>
         </div>
     </div>
 </nav>
@@ -91,7 +87,15 @@
 
 <!-- Map Section -->
 <div id="map"></div>
+<div class="list box-shadow" >
+    <ul class="places" data-bind="foreach: places">
+        <li class="place" data-bind="event: {click: $parent.listClick}, visible: visible">
+            <span class="name" data-bind="text: name"></span>
+        </li>
+    </ul>
+</div>
 
+<!--Contact Section-->
 <section id="contact" class="content-section text-center">
     <div class="container">
         <div class="row">
@@ -114,7 +118,7 @@
                     <li class="list-inline-item">
                         <a href="osamalfaify@gmail.com" class="btn btn-default btn-lg">
                             <i class="fa fa-google-plus fa-fw"></i>
-                            <span class="network-name">Google+</span>
+                            <span class="network-name">Google</span>
                         </a>
                     </li>
                 </ul>
@@ -130,16 +134,15 @@
     </div>
 </footer>
 
-<!-- Bootstrap core JavaScript -->
+<!--  JavaScript core -->
+<!--upload js at the bottom of html and async for a great optimized site-->
+<script type="text/javascript" src="js/knockout-3.4.2.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--Google maps-->
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsa9wnR66G11Fd9Ktx8uDI4RrU2hbOxkM&callback=initMap">
-</script>
-<script type="text/javascript" src="js/app.js"></script>
-
-
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsa9wnR66G11Fd9Ktx8uDI4RrU2hbOxkM&callback=initMap" onerror="onGMapsError()"></script>
 </body>
-
 </html>
