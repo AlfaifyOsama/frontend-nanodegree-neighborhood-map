@@ -69,6 +69,10 @@ var LocationMarker = function(data) {
 
     this.title = data.title;
     this.position = data.location;
+    this.street = '',
+    this.city = '',
+    this.phone = '';
+
     this.visible = ko.observable(true);
 
     // Style the markers a bit. This will be our listing marker icon.
@@ -76,6 +80,21 @@ var LocationMarker = function(data) {
 
     //  Change color when the user hover the marker.
     var changeColor = makeMarkerIcon('007BFF');
+
+    var clientID = 'XYRC2FECYK04KM4TODERCX20OCOMVPTRBWSTSLO1FS5NGA3W';
+    var clientSecret = 'QUOBRX1CIHPX5WGV4BBNYTQUZP2A5QWHPORCG4KIEQWOZKBX';
+
+    // get JSON request of foursquare data
+    var reqURL = 'https://api.foursquare.com/v2/venues/search?ll=' + this.position.lat + ',' + this.position.lng + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20160118' + '&query=' + this.title;
+
+    $.getJSON(reqURL).done(function(data) {
+        var results = data.response.venues[0];
+        self.street = results.location.formattedAddress[0] ? results.location.formattedAddress[0]: 'N/A';
+        self.city = results.location.formattedAddress[1] ? results.location.formattedAddress[1]: 'N/A';
+        self.phone = results.contact.formattedPhone ? results.contact.formattedPhone : 'N/A';
+    }).fail(function() {
+        alert('Something went wrong with foursquare');
+    });
 
     // Create a marker per location, and put into markers array
     this.marker = new google.maps.Marker({
