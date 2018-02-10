@@ -202,7 +202,8 @@ function populateInfoWindow(marker, street, city, phone, infowindow) {
                 var panoramaOptions = {
                     position: nearStreetViewLocation,
                     pov: {
-                        heading: heading
+                        heading: heading,
+                        pitch: 20
                     }
                 };
                 var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
