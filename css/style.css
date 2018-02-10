@@ -28,7 +28,7 @@ body {
     position: absolute;
     top: 1630px;
     border-radius: 2px;
-    z-index: 100000000;
+    z-index: 1;
     right: 10px;
     max-height: 399px;
     width: 225px;
@@ -63,23 +63,23 @@ p {
         line-height: 1.6;
         margin: 0 0 35px
     }
+
 }
 
 a {
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
-    color: #42dca3
 }
 
 a:focus, a:hover {
     text-decoration: none;
-    color: #1d9b6c
 }
 
 #mainNav {
     font-family: Cabin, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin-bottom: 0;
+    z-index: 2;
     text-transform: uppercase;
     border-bottom: 1px solid rgba(255, 255, 255, .3);
     background-color: #000
@@ -150,7 +150,7 @@ a:focus, a:hover {
     padding: 200px 0;
     text-align: center;
     color: #fff;
-    /*background: url(../img/1-bg.jpg) no-repeat bottom center scroll;*/
+    background: url(../img/intro.jpg) no-repeat bottom center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -214,7 +214,6 @@ a:focus, a:hover {
 
 .Locations-section {
     color: #fff;
-    /*background: url(../img/Locations-bg.jpg) no-repeat center center scroll;*/
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -243,22 +242,11 @@ a:focus, a:hover {
 .form-inline {
     margin-left :15%;
 }
-.info {
-    display: flex;
-    flex-wrap: wrap;
-    width: 260px;
+#pano {
+    width: 400px;
+    height: 400px;
 }
-.bus-img img {
-    width: 100px;
-}
-.title {
-    font-weight: bold;
-}
-.place {
-    padding: 15px;
-    font-size: 0.8em;
-    border-bottom: 1px solid #ddd;
-}
+
 @media (min-width: 992px) {
     .content-section {
         padding-top: 200px;
@@ -333,6 +321,17 @@ ul.banner-social-buttons {
         margin-top: 2.5%;
         margin-left: 39%;
 
+    }
+    .list {
+        position: absolute;
+        top: 1199px;
+        right: 0px;
+        max-height: 199px;
+        width: 180px;
+    }
+    #pano {
+        width: 250px;
+        height: 250px;
     }
 }
 
