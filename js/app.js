@@ -1,44 +1,7 @@
 // declaring global variables
 var map, infoWindow, bounds;
 
-/* Model Data */
-var locations = [
-    {
-        title: 'Nakheel Tower',
-        location: {
-            lat: 24.7488774,
-            lng: 46.65273419999994
-        }
-    },
-    {
-        title: 'Kingdom Centre',
-        location: {
-            lat: 24.7114,
-            lng:  46.6744
-        }
-    },
-    {
-        title: 'KAFD World Trade Center',
-        location: {
-            lat: 24.76195599999999,
-            lng: 46.64043370000002
-        }
-    },
-    {
-        title: 'Al Faisaliyah Center',
-        location: {
-            lat: 24.6905765,
-            lng: 46.6850970
-        }
-    },
-    {
-        title: 'Burj Rafal',
-        location: {
-            lat: 24.7925009,
-            lng: 46.632335799999964
-        }
-    }
-];
+
 
 // google maps init
 function initMap() {
@@ -90,7 +53,7 @@ var LocationMarker = function(data) {
     $.getJSON(reqURL).done(function(data) {
         var results = data.response.venues[0];
         self.street = results.location.formattedAddress[0] ? results.location.formattedAddress[0]: 'N/A';
-        self.city = results.location.formattedAddress[1] ? results.location.formattedAddress[1]: 'N/A';
+        self.city = results.location.formattedAddress[0] ? results.location.formattedAddress[0]: 'N/A';
         self.phone = results.contact.formattedPhone ? results.contact.formattedPhone : 'N/A';
     }).fail(function() {
         alert('Something went wrong with foursquare');
